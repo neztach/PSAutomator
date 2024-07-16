@@ -1,4 +1,32 @@
 Function Service {
+    <#
+    .SYNOPSIS
+    This function provides a service with specified parameters and executes a workflow based on the provided data.
+
+    .DESCRIPTION
+    The Service function is used to manage and execute a service with the given name, status, tags, configuration path, and service data script block. It starts by logging the time and then proceeds to execute the service workflow.
+
+    .PARAMETER Name
+    Specifies the name of the service.
+
+    .PARAMETER Status
+    Specifies the status of the service. If set to 'Disable', the service will not be executed.
+
+    .PARAMETER Tag
+    Specifies tags associated with the service.
+
+    .PARAMETER ConfigurationPath
+    Specifies the path to the configuration for the service.
+
+    .PARAMETER ServiceData
+    Specifies the script block containing the service data to be executed.
+
+    .EXAMPLE
+    Service -Name "MyService" -Status "Enable" -Tag "Tag1", "Tag2" -ConfigurationPath "C:\Config" -ServiceData { Write-Host "Executing service data" }
+
+    Initiates the service named "MyService" with status "Enable", tags "Tag1" and "Tag2", configuration path "C:\Config", and executes the provided service data script block.
+
+    #>
     [CmdletBinding()]
     param(
         [Parameter(Mandatory = $true, Position = 0)][string] $Name,

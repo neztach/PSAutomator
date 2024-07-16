@@ -1,4 +1,25 @@
 function Get-WinDocumentationText {
+    <#
+    .SYNOPSIS
+    Retrieves and replaces placeholders in documentation text based on provided Forest and Domain information.
+
+    .DESCRIPTION
+    The Get-WinDocumentationText function retrieves documentation text and replaces placeholders with actual values based on the provided Forest and Domain information.
+
+    .PARAMETER Text
+    Specifies an array of documentation text with placeholders to be replaced.
+
+    .PARAMETER Forest
+    Specifies the Forest object containing Forest-related information.
+
+    .PARAMETER Domain
+    Specifies the Domain name for which the documentation text is being retrieved.
+
+    .EXAMPLE
+    Get-WinDocumentationText -Text @('This is <ForestName> documentation for <Domain>', 'Another example for <DomainNetBios>') -Forest $ForestObject -Domain 'DomainName'
+    Retrieves and replaces placeholders in the documentation text for the specified Forest and Domain.
+
+    #>
     [CmdletBinding()]
     param (
         [string[]] $Text,

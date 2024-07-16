@@ -1,4 +1,29 @@
 function Submit-ConditionFields {
+    <#
+    .SYNOPSIS
+    This function submits conditions based on specified fields.
+
+    .DESCRIPTION
+    The Submit-ConditionFields function is used to filter objects based on specified fields and conditions.
+
+    .PARAMETER Object
+    Specifies the object to filter.
+
+    .PARAMETER Value
+    Specifies the value to compare against.
+
+    .PARAMETER Type
+    Specifies the type of condition to apply. Default is 'Default'.
+
+    .EXAMPLE
+    Submit-ConditionFields -Object $object -Value $value -Type 'OrganizationalUnit'
+    Filters the object based on the OrganizationalUnit field.
+
+    .EXAMPLE
+    Submit-ConditionFields -Object $object -Value $value -Type 'GroupMembership'
+    Filters the object based on the GroupMembership field.
+
+    #>
     [CmdletBinding()]
     param(
         [Object] $Object,

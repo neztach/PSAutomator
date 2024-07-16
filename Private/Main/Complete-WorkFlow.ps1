@@ -1,4 +1,19 @@
 Function Complete-WorkFlow {
+    <#
+    .SYNOPSIS
+    Executes a complete workflow process for the provided object.
+
+    .DESCRIPTION
+    The Complete-WorkFlow function executes a comprehensive workflow process for the given object. It includes triggering actions based on specified conditions, connecting to necessary services, and handling user data accordingly.
+
+    .PARAMETER Object
+    Specifies the object for which the workflow process is being executed.
+
+    .EXAMPLE
+    Complete-WorkFlow -Object $object
+    Executes the complete workflow process for the specified object.
+
+    #>
     [CmdletBinding()]
     param (
         [Parameter(ValueFromPipeline = $true, Mandatory = $false, Position = 0)] $Object
@@ -64,7 +79,7 @@ Function Complete-WorkFlow {
 
 
         foreach ($Condition in $Object.Conditions) {
-            if (-not [string]::IsNullOrEmpty($Condition.Value) -and $Condition.Condition -ne $null) {
+            if (-not [string]::IsNullOrEmpty($Condition.Value) -and $null -ne $Condition.Condition) {
                 if ($Condition.Value -is [string]) {
                     $WriteInformation = @{
                         Text        = '[+]', ' Running Condition', ' for ', $Condition.Name, ' as ', $Condition.Condition

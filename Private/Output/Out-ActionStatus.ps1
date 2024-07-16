@@ -1,4 +1,35 @@
 function Out-ActionStatus {
+    <#
+    .SYNOPSIS
+    Outputs information about the action status.
+
+    .DESCRIPTION
+    The Out-ActionStatus function is used to display status information about a specific action being executed.
+
+    .PARAMETER CommandOutput
+    Specifies the output of the command that is being executed.
+
+    .PARAMETER User
+    Specifies the user object for which the action status is being displayed.
+
+    .PARAMETER UserAzureAD
+    Specifies the Azure Active Directory user object for which the action status is being displayed.
+
+    .PARAMETER Name
+    Specifies the name of the action being executed.
+
+    .PARAMETER WhatIf
+    Indicates whether the action is a simulation or actual execution.
+
+    .EXAMPLE
+    Out-ActionStatus -CommandOutput $output -User $user -Name "Action1" -WhatIf
+    Outputs status information about the action named "Action1" for the specified user in simulation mode.
+
+    .EXAMPLE
+    Out-ActionStatus -CommandOutput $output -UserAzureAD $userAzureAD -Name "Action2"
+    Outputs status information about the action named "Action2" for the specified Azure Active Directory user.
+
+    #>
     [CmdletBinding(DefaultParameterSetName = 'ActiveDirectory')]
     param(
         [parameter(Mandatory = $false)][Array] $CommandOutput,

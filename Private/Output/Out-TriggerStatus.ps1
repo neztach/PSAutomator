@@ -1,4 +1,19 @@
 function Out-TriggerStatus {
+    <#
+    .SYNOPSIS
+    Outputs information about the trigger being executed.
+
+    .DESCRIPTION
+    The Out-TriggerStatus function is used to display status information about the trigger currently being executed.
+
+    .PARAMETER Trigger
+    Specifies the trigger object for which the status information is being displayed.
+
+    .EXAMPLE
+    Out-TriggerStatus -Trigger $trigger
+    Outputs status information about the specified trigger.
+
+    #>
     param(
         $Trigger
     )

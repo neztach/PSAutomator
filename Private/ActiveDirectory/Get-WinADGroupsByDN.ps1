@@ -1,4 +1,25 @@
 function Get-WinADGroupsByDN {
+    <#
+    .SYNOPSIS
+    Retrieves Active Directory groups based on their DistinguishedName.
+
+    .DESCRIPTION
+    This function retrieves Active Directory groups by their DistinguishedName. It returns specific properties of the groups such as DistinguishedName, GroupCategory, GroupScope, Name, ObjectClass, ObjectGUID, SamAccountName, and SID.
+
+    .PARAMETER DistinguishedName
+    Specifies the DistinguishedName of the Active Directory groups to retrieve.
+
+    .PARAMETER Field
+    Specifies the field to return for each group. Default is 'Name'.
+
+    .PARAMETER All
+    Indicates whether to return all properties of the groups.
+
+    .EXAMPLE
+    Get-WinADGroupsByDN -DistinguishedName 'CN=Disabled Users,OU=SecurityGroups,OU=Groups,OU=Production,DC=ad,DC=evotec,DC=xyz'
+    Retrieves the group with the specified DistinguishedName.
+
+    #>
 
     <# Returns one of the values
     DistinguishedName : CN=Disabled Users,OU=SecurityGroups,OU=Groups,OU=Production,DC=ad,DC=evotec,DC=xyz

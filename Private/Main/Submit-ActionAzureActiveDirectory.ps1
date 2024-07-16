@@ -1,4 +1,33 @@
 function Submit-ActionAzureActiveDirectory {
+    <#
+    .SYNOPSIS
+    Submits actions for Azure Active Directory-related tasks for a list of users.
+
+    .DESCRIPTION
+    The Submit-ActionAzureActiveDirectory function is used to submit various actions related to Azure Active Directory for a list of users.
+
+    .PARAMETER Object
+    Specifies the object containing user data.
+
+    .PARAMETER Action
+    Specifies the action to be performed on the users.
+
+    .EXAMPLE
+    Submit-ActionAzureActiveDirectory -Object $object -Action AccountDisable
+    Submits the action to disable accounts for the list of users.
+
+    .EXAMPLE
+    Submit-ActionAzureActiveDirectory -Object $object -Action AccountEnable
+    Submits the action to enable accounts for the list of users.
+
+    .EXAMPLE
+    Submit-ActionAzureActiveDirectory -Object $object -Action AddLicense -Value 'LicenseType'
+    Submits the action to add a license of 'LicenseType' for the list of users.
+
+    .EXAMPLE
+    Submit-ActionAzureActiveDirectory -Object $object -Action RemoveLicense -Value 'LicenseType'
+    Submits the action to remove a license of 'LicenseType' for the list of users.
+    #>
     [CmdletBinding()]
     param(
         $Object,

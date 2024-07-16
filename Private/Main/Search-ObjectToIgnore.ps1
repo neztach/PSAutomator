@@ -1,4 +1,22 @@
 function Search-ObjectToIgnore {
+    <#
+    .SYNOPSIS
+    Searches for objects that meet specific criteria to be ignored.
+
+    .DESCRIPTION
+    The Search-ObjectToIgnore function is used to search for objects that meet specific criteria to be ignored based on the provided ignore list.
+
+    .PARAMETER Object
+    Specifies the object to be checked for ignore criteria.
+
+    .PARAMETER Ignore
+    Specifies the ignore list containing criteria for objects to be ignored.
+
+    .EXAMPLE
+    Search-ObjectToIgnore -Object $object -Ignore $ignoreList
+    Searches for objects that meet the ignore criteria based on the provided ignore list.
+
+    #>
     [CmdletBinding()]
     param(
         $Object,

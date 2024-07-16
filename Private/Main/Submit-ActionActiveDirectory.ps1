@@ -1,4 +1,61 @@
 function Submit-ActionActiveDirectory {
+    <#
+    .SYNOPSIS
+    Submits actions for Active Directory-related tasks for a list of users.
+
+    .DESCRIPTION
+    The Submit-ActionActiveDirectory function is used to submit various actions related to Active Directory for a list of users.
+
+    .PARAMETER Object
+    Specifies the object containing user data.
+
+    .PARAMETER Action
+    Specifies the action to be performed on the users.
+
+    .EXAMPLE
+    Submit-ActionActiveDirectory -Object $object -Action AccountAddGroupsSpecific
+    Submits the action to add specific groups for the list of users.
+
+    .EXAMPLE
+    Submit-ActionActiveDirectory -Object $object -Action AccountDisable
+    Submits the action to disable accounts for the list of users.
+
+    .EXAMPLE
+    Submit-ActionActiveDirectory -Object $object -Action AccountEnable
+    Submits the action to enable accounts for the list of users.
+
+    .EXAMPLE
+    Submit-ActionActiveDirectory -Object $object -Action AccountHideInGAL
+    Submits the action to hide users in the Global Address List for the list of users.
+
+    .EXAMPLE
+    Submit-ActionActiveDirectory -Object $object -Action AccountShowInGAL
+    Submits the action to show users in the Global Address List for the list of users.
+
+    .EXAMPLE
+    Submit-ActionActiveDirectory -Object $object -Action AccountRemoveGroupsAll
+    Submits the action to remove all groups for the list of users.
+
+    .EXAMPLE
+    Submit-ActionActiveDirectory -Object $object -Action AccountRemoveGroupsSecurity
+    Submits the action to remove security groups for the list of users.
+
+    .EXAMPLE
+    Submit-ActionActiveDirectory -Object $object -Action AccountRemoveGroupsDistribution
+    Submits the action to remove distribution groups for the list of users.
+
+    .EXAMPLE
+    Submit-ActionActiveDirectory -Object $object -Action AccountRemoveGroupsDomainLocal
+    Submits the action to remove domain local groups for the list of users.
+
+    .EXAMPLE
+    Submit-ActionActiveDirectory -Object $object -Action AccountRemoveGroupsGlobal
+    Submits the action to remove global groups for the list of users.
+
+    .EXAMPLE
+    Submit-ActionActiveDirectory -Object $object -Action AccountRemoveGroupsUniversal
+    Submits the action to remove universal groups for the list of users.
+    #>
     [CmdletBinding()]
     param(
         $Object,

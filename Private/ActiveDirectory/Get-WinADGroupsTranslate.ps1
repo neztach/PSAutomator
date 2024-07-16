@@ -1,4 +1,14 @@
 function Get-WinADGroupsTranslate {
+    <#
+    .SYNOPSIS
+    Retrieves and translates Active Directory group information into a readable format.
+
+    .DESCRIPTION
+    This function retrieves group information from Active Directory and translates it into a readable format. It includes various group attributes such as group name, display name, category, scope, SID, high privileged status, member count, memberOf count, manager, and group members.
+
+    .PARAMETER Groups
+    Specifies an array of group objects to translate.
+    #>
     param (
         [System.Object[]] $Groups
     )

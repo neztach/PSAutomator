@@ -1,4 +1,19 @@
 function Out-ConnectionStatus {
+    <#
+    .SYNOPSIS
+    Outputs information about the connection status.
+
+    .DESCRIPTION
+    The Out-ConnectionStatus function is used to display status information about a specific connection.
+
+    .PARAMETER CommandOutput
+    Specifies the output of the command that is being executed.
+
+    .EXAMPLE
+    Out-ConnectionStatus -CommandOutput $output
+    Outputs status information about the connection based on the provided output.
+
+    #>
     [CmdletBinding()]
     param(
         [parameter(Mandatory = $false)][Array] $CommandOutput

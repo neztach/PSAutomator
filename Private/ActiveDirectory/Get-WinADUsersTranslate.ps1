@@ -1,4 +1,18 @@
 function Get-WinADUsersTranslate {
+    <#
+    .SYNOPSIS
+    Retrieves and translates Active Directory user information into a readable format.
+
+    .DESCRIPTION
+    This function retrieves user information from Active Directory and translates it into a readable format. It includes various user attributes such as name, user principal name, display name, email address, password status, manager, account details, and more.
+
+    .PARAMETER Users
+    Specifies an array of user objects to translate.
+
+    .NOTES
+    File Name      : Get-WinADUsersTranslate.ps1
+    Prerequisite   : Requires Active Directory module to be installed.
+    #>
     [CmdletBinding()]
     param(
         [System.Object[]] $Users
@@ -15,7 +29,7 @@ function Get-WinADUsersTranslate {
             'EmailAddress'                      = $U.EmailAddress
             'PasswordExpired'                   = $U.PasswordExpired
             'PasswordLastSet'                   = $U.PasswordLastSet
-            'PasswordLastChanged'               = if ($U.PasswordLastSet -ne $Null) { "$(-$($U.PasswordLastSet - [DateTime]::Today).Days)" } else { ''}
+            'PasswordLastChanged'               = if ($Null -ne $U.PasswordLastSet) { "$(-$($U.PasswordLastSet - [DateTime]::Today).Days)" } else { ''}
             'PasswordNotRequired'               = $U.PasswordNotRequired
             'PasswordNeverExpires'              = $U.PasswordNeverExpires
             'Enabled'                           = $U.Enabled

@@ -1,11 +1,24 @@
 function Get-WinADGroups {
+    <#
+    .SYNOPSIS
+    Retrieves Active Directory groups based on specified criteria.
+
+    .DESCRIPTION
+    This function retrieves Active Directory groups based on the provided filter or organizational unit. It allows for filtering by various attributes to narrow down the search results.
+
+    .PARAMETER Filter
+    Specifies the filter criteria for retrieving groups.
+
+    .PARAMETER OrganizationalUnit
+    Specifies the organizational unit to search for groups within.
+    #>
     [CmdletBinding()]
     param(
         $Filter,
         $OrganizationalUnit
     )
     $Splatting = @{}
-    if ($Filter -eq $null -and $OrganizationalUnit -eq $null) {
+    if ($null -eq $Filter -and $null -eq $OrganizationalUnit) {
         $Splatting = $Filter
     } else {
         if ($OrganizationalUnit) {

@@ -1,4 +1,30 @@
 function Out-ConfigurationStatus {
+    <#
+    .SYNOPSIS
+    Outputs information about the configuration status.
+
+    .DESCRIPTION
+    The Out-ConfigurationStatus function is used to display status information about the configuration process.
+
+    .PARAMETER CommandOutput
+    Specifies the output of the command that is being executed.
+
+    .PARAMETER Option
+    Specifies the option for which the configuration status is being displayed. Default is 'Start'.
+
+    .EXAMPLE
+    Out-ConfigurationStatus -CommandOutput $output -Option 'Start'
+    Outputs status information about the start of the configuration process.
+
+    .EXAMPLE
+    Out-ConfigurationStatus -CommandOutput $output -Option 'End'
+    Outputs status information about the end of the configuration process.
+
+    .EXAMPLE
+    Out-ConfigurationStatus -CommandOutput $output -Option 'Invalid'
+    Outputs status information about a failed configuration process.
+
+    #>
     [CmdletBinding()]
     param(
         [parameter(Mandatory = $false)][Array] $CommandOutput,

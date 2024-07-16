@@ -1,4 +1,21 @@
 function Get-WinADUsers {
+    <#
+    .SYNOPSIS
+    Retrieves Active Directory users based on specified criteria.
+
+    .DESCRIPTION
+    This function retrieves Active Directory users based on the provided filter, organizational unit, or group. It allows for filtering by various attributes to narrow down the search results.
+
+    .PARAMETER Filter
+    Specifies the filter criteria for retrieving users. This can be a string filter or a hashtable containing 'Filter' and 'SearchBase' keys.
+
+    .PARAMETER OrganizationalUnit
+    Specifies the organizational unit to search for users within.
+
+    .PARAMETER Group
+    Specifies the group to retrieve users from.
+
+    #>
     [CmdletBinding()]
     param(
         $Filter,
@@ -53,7 +70,7 @@ function Get-WinADUsers {
             'EmailAddress'                      = $U.EmailAddress
             'PasswordExpired'                   = $U.PasswordExpired
             'PasswordLastSet'                   = $U.PasswordLastSet
-            'Password Last Changed'             = if ($U.PasswordLastSet -ne $Null) { "$(-$($U.PasswordLastSet - [DateTime]::Today).Days) days" } else { 'N/A'}
+            'Password Last Changed'             = if ($Null -ne $U.PasswordLastSet) { "$(-$($U.PasswordLastSet - [DateTime]::Today).Days) days" } else { 'N/A'}
             'PasswordNotRequired'               = $U.PasswordNotRequired
             'PasswordNeverExpires'              = $U.PasswordNeverExpires
             'Enabled'                           = $U.Enabled
@@ -74,7 +91,7 @@ function Get-WinADUsers {
             "EmployeeNumber"                    = $U.EmployeeNumber
             "LastBadPasswordAttempt"            = $U.LastBadPasswordAttempt
             "LastLogonDate"                     = $U.LastLogonDate
-            'Last Logon Days'                   = if ($U.LastLogonDate -ne $Null) { "$(-$($U.LastLogonDate - [DateTime]::Today).Days) days" } else { 'N/A'}
+            'Last Logon Days'                   = if ($Null -ne $U.LastLogonDate) { "$(-$($U.LastLogonDate - [DateTime]::Today).Days) days" } else { 'N/A'}
 
             "Created"                           = $U.Created
             "Modified"                          = $U.Modified

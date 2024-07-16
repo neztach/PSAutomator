@@ -1,4 +1,19 @@
 function Start-Configuration {
+    <#
+    .SYNOPSIS
+    Initializes the configuration process and connects to specified services.
+
+    .DESCRIPTION
+    The Start-Configuration function is used to initialize the configuration process and establish connections to the specified services based on the provided configuration settings.
+
+    .PARAMETER Configuration
+    Specifies the configuration settings containing service connection details.
+
+    .EXAMPLE
+    Start-Configuration -Configuration $configuration
+    Initializes the configuration process and connects to the specified services based on the provided configuration settings.
+
+    #>
     param(
         $Configuration
     )

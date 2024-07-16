@@ -1,4 +1,37 @@
 Function Action {
+    <#
+    .SYNOPSIS
+    Performs an action on an object.
+
+    .DESCRIPTION
+    This function performs a specified action on an object based on the parameters provided.
+
+    .PARAMETER Object
+    The object on which the action will be performed.
+
+    .PARAMETER Name
+    The name of the action.
+
+    .PARAMETER ActiveDirectory
+    Specifies an action related to Active Directory.
+
+    .PARAMETER AzureActiveDirectory
+    Specifies an action related to Azure Active Directory.
+
+    .PARAMETER Exchange
+    Specifies an action related to Exchange.
+
+    .PARAMETER Value
+    The value associated with the action.
+
+    .PARAMETER WhatIf
+    Shows what would happen if the action is run without actually running it.
+
+    .EXAMPLE
+    Action -Object $obj -Name "ExampleAction" -Value "123" -WhatIf
+    Performs the action "ExampleAction" on the object $obj with the value "123" in a simulated environment.
+
+    #>
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $false, ValueFromPipeline = $true, Position = 0)] $Object,
@@ -11,7 +44,7 @@ Function Action {
     )
     Begin {}
     Process {
-        if ($Object -eq $null) {
+        if ($null -eq $Object) {
             Write-Warning "Action can't be used out of order. Terminating!"
             Exit
         }
